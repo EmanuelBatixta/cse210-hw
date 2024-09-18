@@ -33,18 +33,24 @@ class Program
 
         int minGrade = 70;
         
-        // string symbolGrade = "";
-
-        // if (numVersion[1] >= "7" && numVersion != "A" || numVersion != "F")
-        // {
-        //     symbolGrade = "+";
-        // }
-        // else if (numVersion[1] < 3 && numVersion != "F")
-        // {
-        //     symbolGrade = "-";
-        // }
-
-        Console.WriteLine($"Your grade is {realGrade}.");
+        string realSymbol = "";
+        if (realGrade != "A" && realGrade != "F")
+        {
+            if (numVersion % 10 >= 3)
+            {
+                realSymbol = "+";
+            }
+            else if (numVersion % 10 <= 7)
+            {
+                realSymbol = "-";
+            }
+            else
+            {
+                realSymbol = "";
+            }
+        }
+        
+        Console.WriteLine($"Your grade is {realGrade}{realSymbol}.");
 
         if (minGrade > numVersion)
         {
