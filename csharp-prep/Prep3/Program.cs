@@ -12,12 +12,6 @@ class Program
             Random randomGenerator = new Random();
             int magicNumber = randomGenerator.Next(1,101);
             int tryGuess = 0;
-
-            // Console.Write("What is the magic number? ");
-            // string magicNumberSting = Console.ReadLine();
-            // magicNumber = int.Parse(magicNumberSting);
-        
-   
             do
             {
                 tryGuess ++;
