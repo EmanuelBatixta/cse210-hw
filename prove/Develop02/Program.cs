@@ -7,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Journal _journal = new Journal();
+        Exceptions _exception = new Exceptions();
         Entry _entry = new Entry();
 
         string _option;
@@ -26,7 +27,7 @@ class Program
             }
             else if(_option == "3") // load
             {
-                _journal.LoadFromFile();
+                _exception.FileError(_journal);
             }
             else if(_option == "4") // save
             {
@@ -38,7 +39,7 @@ class Program
 
     static string MenuOptions()
     {
-        Console.WriteLine("Welcome to the Journal Program!");
+        Console.WriteLine("\nWelcome to the Journal Program!");
         Console.WriteLine("Please select one of the following choices:");
         Console.WriteLine("1. Write");
         Console.WriteLine("2. Display");
@@ -49,6 +50,27 @@ class Program
         string _option = Console.ReadLine();
 
         return _option;
+    }
+
+    class Exceptions
+    {
+        public void FileError(Journal _path)
+        {
+            bool LoadedFile = false;
+            while (!LoadedFile)
+            {
+                try
+                {
+                    _path.LoadFromFile();
+                    LoadedFile = true;
+                }
+                catch(FileNotFoundException)
+                {
+                    Console.WriteLine("The file not found, please enter a valid filename.");
+                }
+                
+            }
+        }
     }
 
     class Journal
@@ -66,7 +88,7 @@ class Program
 
         public void LoadFromFile() // Read text of a document
         {   
-            Console.Write("What's the file name? \n> ");
+            Console.Write("What's the filename? \n> ");
             string filename = Console.ReadLine();
             
             string[] lines = System.IO.File.ReadAllLines(filename);
@@ -86,7 +108,7 @@ class Program
     
         public void SaveToFile() //Put text in a document 
         {
-            Console.Write("What's the file name? \n> ");
+            Console.Write("What's the filename? \n> ");
             string fileName = Console.ReadLine();
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
@@ -101,7 +123,7 @@ class Program
         {
             foreach(Entry entry in _entries)
                 {
-                    Console.WriteLine($"Date: {entry._date} -- Prompt: {entry._prompt} \n{entry._entryText}\n");
+                    Console.WriteLine($"\nDate: {entry._date} -- Prompt: {entry._prompt} \n{entry._entryText}");
                 }
         }
 
