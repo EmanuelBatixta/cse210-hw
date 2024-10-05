@@ -10,7 +10,7 @@ class Program
         Console.Write("What is your last name? "); 
         string Lname = Console.ReadLine();
         
-        Console.WriteLine($"Your name is {Lname}, {Fname} {Lname}"); // will display the text and the varible's content
+        Console.WriteLine($"Your name is {Lname}, {Fname} {Lname}."); // will display the text and the varible's content
 
     }
 }

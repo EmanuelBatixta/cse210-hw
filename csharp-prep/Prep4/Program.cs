@@ -32,7 +32,7 @@ class Program
 
         Console.WriteLine($"The sum is: {sum}");
 
-        int average = sum/count;
+        float average = ((float)sum)/count;
         Console.WriteLine($"The average is: {average}");
 
         int largest = 0;
@@ -44,12 +44,23 @@ class Program
             }
         }
 
-        Console.WriteLine($"The largest number is: {largest}");
+        Console.WriteLine($"The max: {largest}");
 
-        numbers.Sort();
-        foreach (int item in numbers)
-        {
-            Console.WriteLine($"{item}");
-        }
+        // int smallest = -1;
+        // foreach(int i in numbers)
+        // {
+        //     if (i < smallest && i > 0)
+        //     {
+        //         smallest = i;
+        //     }
+        // }
+        // Console.WriteLine($"The smallest number is: {smallest}");
+
+        // numbers.Sort();
+        // Console.WriteLine("The sorted list is:");
+        // foreach (int item in numbers)
+        // {
+        //     Console.WriteLine($"{item}");
+        // }
     }
 }
