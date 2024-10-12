@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         List<Products> _products = new List<Products>();
         Address _address = new Address("Morro Bonito","Jacarei","Minas Gerais","BR");
         Customers _customer = new Customers("Emanuel Jonatas", _address);
@@ -23,7 +24,11 @@ class Program
 
         _orders.TotalValue();
 
+        Console.WriteLine("\nPacking Label: ");
         _orders.PackingLabel();
+
+        Console.WriteLine("\nShipping Label: ");
         _orders.ShippingLabel();
+        Console.WriteLine("\n");
     }
 }

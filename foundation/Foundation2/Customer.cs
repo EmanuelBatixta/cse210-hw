@@ -11,7 +11,7 @@ class Customers
 
     public string CustomerInfo()
     {
-        string infos = $"{_name}: {_address.GetAddress()}";
+        string infos = $"{_name} \n{_address.GetAddress()}";
         return infos;
     }
 
