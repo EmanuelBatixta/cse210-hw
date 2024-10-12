@@ -4,46 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        string sNumber = "";
-        int iNumber = 1;
-        List<int> numbers = new List<int>();
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
 
-        do
-        {
-            Console.Write("Enter number: ");
-            sNumber = Console.ReadLine();
-            iNumber = int.Parse(sNumber);
+        Numbers numbers = new Numbers();
 
-            if (iNumber != 0)
-            {
-                numbers.Add(iNumber);
-            }
-
-        }while(iNumber != 0 );
-
-        int count = numbers.Count;
-        int sum = 0;
-
-        foreach (int num in numbers)
-        {
-            sum += num;
-        }
+        numbers.AddNumbers();
+        int sum = numbers.SumS();
+        float average = numbers.Averages();
+        int largest = numbers.LargestNum();
 
         Console.WriteLine($"The sum is: {sum}");
-
-        float average = ((float)sum)/count;
         Console.WriteLine($"The average is: {average}");
-
-        int largest = 0;
-        foreach (int i in numbers)
-        {
-            if (i > largest)
-            {
-                largest = i;
-            }
-        }
-
         Console.WriteLine($"The max: {largest}");
 
         // int smallest = -1;
