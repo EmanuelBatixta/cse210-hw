@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Video> _videos = new List<Video>();
         Console.Clear();
         Video video1 = new Video("C# Introduction","Emanuel Jonatas", 8000);
         Video video2 = new Video("Introduction to Web design","Lincol Burrows", 9000);
@@ -21,14 +22,15 @@ class Program
         video3.AddComment("Lucas Lemos","You helped me solve a problem this night. Thanks!");
         video3.AddComment("Felipe Silva","Hey bro, continue be the good professor.");
 
-        video1.PrintVideo();
-        Console.WriteLine("");
+        _videos.Add(video1);
+        _videos.Add(video2);
+        _videos.Add(video3);
 
-        video2.PrintVideo();
-        Console.WriteLine("");
-
-        video3.PrintVideo();
-        Console.WriteLine("");
+        foreach(Video v in _videos)
+        {
+            v.PrintVideo();
+            Console.WriteLine("");
+        }
 
     }
 }
