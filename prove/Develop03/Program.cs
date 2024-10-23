@@ -1,6 +1,8 @@
 using System;
 using System.Text;
 
+// I created a scripture file, my program now choose randonly a scripture to memorize
+
 class Program
 {
     static void Main(string[] args)
