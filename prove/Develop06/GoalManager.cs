@@ -1,4 +1,4 @@
-using System.Threading.Channels;
+using System;
 
 class GoalManager
 {
@@ -155,6 +155,8 @@ class GoalManager
                 outputFile.WriteLine(g.GetStringRepresentation());
             }
         }        
+        Console.Write("The goals was been saved! \nPress enter to continue");
+        Console.ReadLine();
     }
     public void LoadGoals()
     {
@@ -175,8 +177,8 @@ class GoalManager
                     string goalType = parts[0].Trim();
                     string[] details = parts[1].Trim().Split(",");
 
-                    string _name = details[0];
-                    string _description = details[1];
+                    string _name = details[0].Trim();
+                    string _description = details[1].Trim();
                     string _points = details[2];
 
                     Goal goal = null; 
@@ -208,14 +210,14 @@ class GoalManager
                     }
                 }
                 
+                Console.WriteLine($"The file was loaded successfuly \nPress enter to continue  ");
+                Console.ReadLine();
             } 
         }
-
-        catch (Exception)
+        catch (Exception ex )
         {
-            Console.WriteLine($"The file is not found.\nPress enter to continue");
+            Console.Write($"An error occurred while loading goals: {ex.Message} \nPress enter to continue  ");
             Console.ReadLine();
         }
-
     }      
 }
