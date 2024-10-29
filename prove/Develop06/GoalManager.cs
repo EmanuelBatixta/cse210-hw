@@ -1,4 +1,5 @@
 using System;
+using System.Linq.Expressions;
 
 class GoalManager
 {
@@ -134,7 +135,7 @@ class GoalManager
             {
                 _score += int.Parse(_goals[goalIndex].GetPoints());
             }
-            Console.WriteLine("Event recorded successfully!\n Press enter to continue");
+            Console.WriteLine("Event recorded successfully! \nPress enter to continue");
             Console.ReadLine();
         }
         else
@@ -179,15 +180,15 @@ class GoalManager
 
                     string _name = details[0].Trim();
                     string _description = details[1].Trim();
-                    string _points = details[2];
+                    string _points = details[2].Trim();
 
                     Goal goal = null; 
                     
                     if(goalType == "ChecklistGoal")
                     {
-                        int _bonus = int.Parse(details[3]);
-                        int _target = int.Parse(details[4]);
-                        int _amount = int.Parse(details[5]);
+                        int _bonus = int.Parse(details[3].Trim());
+                        int _target = int.Parse(details[4].Trim());
+                        int _amount = int.Parse(details[5].Trim());
 
                         goal = new ChecklistGoal(_name,_description,_points,_target,_bonus);
 
@@ -202,6 +203,10 @@ class GoalManager
                     }
                     else{
                         goal = new SimpleGoal(_name,_description,_points);
+                        if (details[3].Trim() != "False")
+                        {
+                            goal.RecordEvent();
+                        }
                     }
                     
                     if(goal != null)
